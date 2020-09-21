@@ -1,0 +1,6 @@
+#!/bin/bash
+  amazon-linux-extras install nginx1.12 -y
+  amazon-linux-extras install php7.2 -y
+  yum install php-fpm -y
+  echo "<?php phpinfo(); ?>" > /usr/share/nginx/html/index.php
+  for i in php-fpm nginx; do service $i start; done
